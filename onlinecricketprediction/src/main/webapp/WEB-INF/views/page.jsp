@@ -9,25 +9,39 @@
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
+<!DOCTYPE html>
+<html lang="en">
 
-
-<!doctype html>
-<html lang="en" class="no-js">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Online Cricket Prediction Website Using Spring MVC and Hibernate">
+<meta name="author" content="Virat Goradia">
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
 
-	<link rel="stylesheet" href="${css}/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="${css}/style.css"> <!-- Resource style -->
-	<script src="${js}/modernizr.js"></script> <!-- Modernizr -->
-  	
-	<title>Online Cricket Prediction -  ${title}</title>
-	</head>
+<title>Online Shopping - ${title}</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Readable Theme -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+
+<!-- Bootstrap DataTables -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
+
+<!-- Custom CSS -->
+<link href="${css}/myapp.css" rel="stylesheet">
+
+<body>
 	
-	
-  <body>
+	<div class="se-pre-con"></div>
+	<div class="wrapper">
 
     <!-- Navigation -->
    <%@include file="./shared/navbar.jsp" %>
@@ -42,34 +56,31 @@
    		<%@include file="about.jsp" %>
    </c:if>
    
-    <!--  Load only when user clicks contact -->
+   <!--  Load only when user clicks contact -->
    <c:if test="${userClickContact == true }" >
    		<%@include file="contact.jsp" %>
    </c:if>
    
+   <!--  Load only when user clicks all games or category games -->
+   <c:if test="${userClickAllGames == true or userClickCategoryGames == true}" >
+   		<%@include file="listGames.jsp" %>
+   </c:if>
+   
+   </div>
+   
     <!--  Footer -->
     <%@include file="./shared/footer.jsp" %>
-    
-    <!-- Javascript -->
-    <script src="${js}/jquery-2.1.1.js"></script>
-	<script src="${js}/main.js"></script> <!-- Resource jQuery -->
-	<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+   
+	<!-- jQuery -->
+	<script src="${js}/jquery.js"></script>
 
-  	ga('create', 'UA-48014931-1', 'codyhouse.co');
-  	ga('send', 'pageview');
+	<script src="${js}/jquery.validate.js"></script>
 
-  	jQuery(document).ready(function($){
-  		$('.close-carbon-adv').on('click', function(event){
-  			event.preventDefault();
-  			$('#carbonads-container').hide();
-  		});
-  	});
-	</script>
-
+	<!-- Bootstrap Core JavaScript -->
+	<script src="${js}/bootstrap.min.js"></script>
+	
+	</div>
+	
   </body>
 
 </html>

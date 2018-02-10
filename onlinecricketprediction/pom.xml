@@ -14,6 +14,13 @@
   </properties>
   
   <dependencies>
+  
+  	<!-- Link backend project -->
+    <dependency>
+    	<groupId>net.vg</groupId>
+  		<artifactId>cricketpredictionbackend</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+    </dependency>
     
     <!-- JAVA EE API -->
 	<dependency>

@@ -3,9 +3,12 @@ package net.vg.cricketpredictionbackend.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import net.vg.cricketpredictionbackend.dao.CategoryDAO;
 import net.vg.cricketpredictionbackend.dto.Category;
 
+@Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 	
 	private static List<Category> categories = new ArrayList<Category> ();
@@ -39,5 +42,16 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public List<Category> list() {
 		return categories;
 
+	}
+
+	@Override
+	public Category get(int id) {
+		
+		for(Category category: categories)
+		{
+			if(category.getId() == id) return category;
+		}
+		
+		return null;
 	}
 }
